@@ -136,9 +136,7 @@ public class KinectSensor : MonoBehaviour, KinectInterface {
 			
 			DontDestroyOnLoad(gameObject);
 			KinectSensor.Instance = this;
-			NativeMethods.NuiSetDeviceStatusCallback(new NuiStatusProc());
 		}
-		
 		catch (Exception e)
 		{
 			Debug.Log(e.Message);
