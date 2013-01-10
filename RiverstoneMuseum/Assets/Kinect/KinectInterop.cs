@@ -300,40 +300,47 @@ namespace Kinect {
 		 */
 		
 		
-	    [DllImportAttribute(@"C:\Program Files (x86)\Microsoft Research KinectSDK\MSRKINECTNUI.DLL", EntryPoint = "NuiInitialize")]
+	    [DllImportAttribute(@"C:\Windows\System32\Kinect10.dll", EntryPoint = "NuiInitialize")]
 	    public static extern int NuiInitialize(NuiInitializeFlags dwFlags);
 		
-		[DllImportAttribute(@"C:\Program Files (x86)\Microsoft Research KinectSDK\MSRKINECTNUI.DLL", EntryPoint = "NuiShutdown")]
+		[DllImportAttribute(@"C:\Windows\System32\Kinect10.dll", EntryPoint = "NuiShutdown")]
 	    public static extern void NuiShutdown();
 		
-		[DllImportAttribute(@"C:\Program Files (x86)\Microsoft Research KinectSDK\MSRKINECTNUI.DLL", EntryPoint = "NuiCameraElevationSetAngle")]
+		[DllImportAttribute(@"C:\Windows\System32\Kinect10.dll", EntryPoint = "NuiCameraElevationSetAngle")]
 		public static extern int NuiCameraSetAngle(long angle);
 		
 		/*
 		 * kinect skeleton functions
 		 */
 		
-		[DllImportAttribute(@"C:\Program Files (x86)\Microsoft Research KinectSDK\MSRKINECTNUI.DLL", EntryPoint = "NuiSkeletonTrackingEnable")]
+		[DllImportAttribute(@"C:\Windows\System32\Kinect10.dll", EntryPoint = "NuiSkeletonTrackingEnable")]
 	    public static extern int NuiSkeletonTrackingEnable(IntPtr hNextFrameEvent, uint dwFlags);
 		
-	    [DllImportAttribute(@"C:\Program Files (x86)\Microsoft Research KinectSDK\MSRKINECTNUI.DLL", EntryPoint = "NuiSkeletonGetNextFrame")]
+	    [DllImportAttribute(@"C:\Windows\System32\Kinect10.dll", EntryPoint = "NuiSkeletonGetNextFrame")]
 	    public static extern int NuiSkeletonGetNextFrame(uint dwMillisecondsToWait, ref NuiSkeletonFrame pSkeletonFrame);
 
-		[DllImportAttribute(@"C:\Program Files (x86)\Microsoft Research KinectSDK\MSRKINECTNUI.DLL", EntryPoint = "NuiTransformSmooth")]
+		[DllImportAttribute(@"C:\Windows\System32\Kinect10.dll", EntryPoint = "NuiTransformSmooth")]
 	    public static extern int NuiTransformSmooth(ref NuiSkeletonFrame pSkeletonFrame,ref NuiTransformSmoothParameters pSmoothingParams);
 		
 		/*
 		 * kinect video functions
 		 */
 		
-		[DllImportAttribute(@"C:\Program Files (x86)\Microsoft Research KinectSDK\MSRKINECTNUI.DLL", EntryPoint = "NuiImageStreamOpen")]
+		[DllImportAttribute(@"C:\Windows\System32\Kinect10.dll", EntryPoint = "NuiImageStreamOpen")]
 	    public static extern int NuiImageStreamOpen(NuiImageType eImageType, NuiImageResolution eResolution, uint dwImageFrameFlags_NotUsed, uint dwFrameLimit, IntPtr hNextFrameEvent, ref IntPtr phStreamHandle);
 		
-		[DllImportAttribute(@"C:\Program Files (x86)\Microsoft Research KinectSDK\MSRKINECTNUI.DLL", EntryPoint = "NuiImageStreamGetNextFrame")]
+		[DllImportAttribute(@"CC:\Windows\System32\Kinect10.dll", EntryPoint = "NuiImageStreamGetNextFrame")]
 	    public static extern int NuiImageStreamGetNextFrame(IntPtr phStreamHandle, uint dwMillisecondsToWait, ref IntPtr ppcImageFrame);
 		
-		[DllImportAttribute(@"C:\Program Files (x86)\Microsoft Research KinectSDK\MSRKINECTNUI.DLL", EntryPoint = "NuiImageStreamReleaseFrame")]
+		[DllImportAttribute(@"C:\Windows\System32\Kinect10.dll", EntryPoint = "NuiImageStreamReleaseFrame")]
 	    public static extern int NuiImageStreamReleaseFrame(IntPtr phStreamHandle, IntPtr ppcImageFrame);
+	
+		[DllImportAttribute(@"C:\Windows\System32\Kinect10.dll", EntryPoint = "NuiSetDeviceStatusCallback")]
+	    public static extern void NuiSetDeviceStatusCallback(NuiStatusProc callback);
 	}
 	
+	
+	public struct NuiStatusProc
+{
+}
 }
